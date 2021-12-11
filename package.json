@@ -1,5 +1,5 @@
 {
-  "name": "voice-changer-nextjs",
+  "name": "kazoku",
   "private": true,
   "scripts": {
     "dev": "next dev",
