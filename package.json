@@ -10,7 +10,7 @@
     "format": "prettier \"**/*.{ts,tsx,json,scss,css}\" --write"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,scss,css}": [
+    "**/*.{ts,tsx,json,scss,css}": [
       "yarn format"
     ]
   },
