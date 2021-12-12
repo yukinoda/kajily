@@ -32,7 +32,12 @@ const Complete = () => {
           alt="Complete Kaji"
         />
       </Box>
-      <Confetti width={width} height={height} />
+      <Confetti
+        width={width}
+        height={height}
+        gravity={0.02}
+        colors={["#ff9f1c", "#ffbf69", "#cbf3f0", "#2ec4b6"]}
+      />
     </>
   );
 };
