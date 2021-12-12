@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -19,22 +20,28 @@ const Home: NextPage = () => {
         <p className={styles.description}>kaji x family x relay</p>
 
         <div className={styles.grid}>
-          <a href="/login" className={styles.card}>
-            <h2>Login &rarr;</h2>
-            <p>
-              Start joining <i>kajily</i> by accessing here!
-            </p>
-          </a>
+          <Link href="/login">
+            <a className={styles.card}>
+              <h2>Login &rarr;</h2>
+              <p>
+                Start joining <i>kajily</i> by accessing here!
+              </p>
+            </a>
+          </Link>
 
-          <a href="/home" className={styles.card}>
-            <h2>Home &rarr;</h2>
-            <p>Checkout your event calendar here!</p>
-          </a>
+          <Link href="/home">
+            <a className={styles.card}>
+              <h2>Home &rarr;</h2>
+              <p>Checkout your event calendar here!</p>
+            </a>
+          </Link>
 
-          <a href="/complete" className={styles.card}>
-            <h2>Complete Screen &rarr;</h2>
-            <p>Event completion screen after everything is done.</p>
-          </a>
+          <Link href="/complete">
+            <a className={styles.card}>
+              <h2>Complete Screen &rarr;</h2>
+              <p>Event completion screen after everything is done.</p>
+            </a>
+          </Link>
         </div>
       </main>
       <footer className={styles.footer}>
