@@ -7,7 +7,7 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { sampleUsers } from "../mock-data/sampleUsers";
 import { Chore, User } from "../types/common.types";
 
@@ -20,6 +20,12 @@ const ChoreItem = ({ data }: ChoreItemProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("checkedTasks");
+    }
+  }, []);
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -29,6 +35,17 @@ const ChoreItem = ({ data }: ChoreItemProps) => {
 
   const handleUserSelect = (user: User) => {
     setSelectedUser(user);
+    if (typeof window !== "undefined") {
+      const checkedTasks = localStorage.getItem("checkedTasks");
+      if (!(checkedTasks && checkedTasks.includes(data.id))) {
+        localStorage.setItem(
+          "checkedTasks",
+          JSON.stringify(
+            checkedTasks ? [...JSON.parse(checkedTasks), data.id] : [data.id]
+          )
+        );
+      }
+    }
     handleClose();
   };
 
