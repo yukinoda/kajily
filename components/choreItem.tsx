@@ -8,13 +8,15 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { Chore } from "../types/common.types";
+import { sampleUsers } from "../mock-data/sampleUsers";
+import { Chore, User } from "../types/common.types";
 
 interface ChoreItemProps {
   data: Chore;
 }
 
 const ChoreItem = ({ data }: ChoreItemProps) => {
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -25,6 +27,11 @@ const ChoreItem = ({ data }: ChoreItemProps) => {
     setAnchorEl(null);
   };
 
+  const handleUserSelect = (user: User) => {
+    setSelectedUser(user);
+    handleClose();
+  };
+
   return (
     <Box mb={2} key={data.id}>
       <Paper variant="outlined" onClick={handleClick}>
@@ -32,14 +39,19 @@ const ChoreItem = ({ data }: ChoreItemProps) => {
           <Typography variant="body1" alignItems="center" display="flex">
             {data.name}
           </Typography>
-          <Avatar />
+          {selectedUser ? (
+            <Avatar sx={{ width: 32, height: 32, bgcolor: selectedUser.color }}>
+              {selectedUser.shortName}
+            </Avatar>
+          ) : (
+            <Avatar sx={{ width: 32, height: 32 }} />
+          )}
         </Box>
       </Paper>
       <Menu
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        onClick={handleClose}
         PaperProps={{
           elevation: 0,
           sx: {
@@ -69,22 +81,12 @@ const ChoreItem = ({ data }: ChoreItemProps) => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>
-          <Avatar sx={{ bgcolor: "#FF9F1C" }}>D</Avatar>
-          Dad
-        </MenuItem>
-        <MenuItem>
-          <Avatar sx={{ bgcolor: "#2EC4B6" }}>M</Avatar>
-          Mom
-        </MenuItem>
-        <MenuItem>
-          <Avatar sx={{ bgcolor: "#CBF3F0" }}>Y</Avatar>
-          Yumi
-        </MenuItem>
-        <MenuItem>
-          <Avatar sx={{ bgcolor: "#FFBF69" }}>C</Avatar>
-          Chiyoko (Grandma)
-        </MenuItem>
+        {sampleUsers.map(user => (
+          <MenuItem key={user.id} onClick={() => handleUserSelect(user)}>
+            <Avatar sx={{ bgcolor: user.color }}>{user.shortName}</Avatar>
+            {user.name}
+          </MenuItem>
+        ))}
       </Menu>
     </Box>
   );

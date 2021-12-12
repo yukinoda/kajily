@@ -18,3 +18,10 @@ export type CalendarEvent = {
   id: string;
   chores?: Chore[];
 };
+
+export type User = {
+  name: string;
+  shortName: string;
+  id: string;
+  color: string;
+};

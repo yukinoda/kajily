@@ -29,7 +29,6 @@ const DetailPage = () => {
       <DefaultLayout>
         <Box mb={2}>
           <Button
-            variant="contained"
             size="large"
             startIcon={<HomeRoundedIcon />}
             onClick={() => router.push("/home")}
@@ -54,7 +53,7 @@ const DetailPage = () => {
                   >
                     {item.name}
                   </Typography>
-                  <ArrowForwardIosRoundedIcon fontSize="large" />
+                  <ArrowForwardIosRoundedIcon />
                 </Box>
               </Paper>
             </Box>

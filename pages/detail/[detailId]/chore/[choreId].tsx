@@ -42,7 +42,6 @@ const ChorePage = () => {
       <DefaultLayout>
         <Box mb={2}>
           <Button
-            variant="contained"
             size="large"
             startIcon={<ArrowBackRoundedIcon />}
             onClick={() => router.push(`/detail/${detailId}`)}
