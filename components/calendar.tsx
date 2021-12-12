@@ -2,32 +2,20 @@ import { Calendar, View, momentLocalizer, SlotInfo } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const localizer = momentLocalizer(moment);
 
 const allViews: View[] = ["month"];
 
-class CalendarEvent {
+type CalendarEvent = {
   title: string;
   start: Date;
   end: Date;
   allDay?: boolean;
   resource?: any;
-
-  constructor(
-    _title: string,
-    _start: Date,
-    _end: Date,
-    _allDay?: boolean,
-    _resource?: any
-  ) {
-    this.title = _title;
-    this.start = _start;
-    this.end = _end;
-    this.allDay = _allDay || false;
-    this.resource = _resource || "";
-  }
-}
+  detailId: string;
+};
 
 const sampleEvents: CalendarEvent[] = [
   {
@@ -35,28 +23,34 @@ const sampleEvents: CalendarEvent[] = [
     start: new Date("2021-12-10"),
     end: new Date("2021-12-12"),
     allDay: true,
+    detailId: "monstarhacks",
   },
   {
     title: "Laundry",
     start: new Date("2021-12-21"),
     end: new Date("2021-12-21"),
     allDay: true,
+    detailId: "laundry",
   },
   {
     title: "Christmas Eve",
     start: new Date("2021-12-24"),
     end: new Date("2021-12-24"),
     allDay: true,
+    detailId: "christmas-eve",
   },
   {
     title: "Christmas",
     start: new Date("2021-12-25"),
     end: new Date("2021-12-25"),
     allDay: true,
+    detailId: "christmas",
   },
 ];
 
 export default function SelectableCalendar() {
+  const router = useRouter();
+
   const [events, setEvents] = useState(sampleEvents as CalendarEvent[]);
 
   const handleSelect = ({ start, end }: SlotInfo) => {
@@ -80,7 +74,7 @@ export default function SelectableCalendar() {
       defaultView="month"
       views={allViews}
       defaultDate={new Date()}
-      onSelectEvent={event => alert(event.title)}
+      onSelectEvent={event => router.push(`/detail/${event.detailId}`)}
       onSelectSlot={handleSelect}
       startAccessor="start"
       endAccessor="end"
