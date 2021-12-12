@@ -13,9 +13,11 @@ import { Chore, User } from "../types/common.types";
 
 interface ChoreItemProps {
   data: Chore;
+  timerStop: () => void;
+  dataLength: number;
 }
 
-const ChoreItem = ({ data }: ChoreItemProps) => {
+const ChoreItem = ({ data, timerStop, dataLength }: ChoreItemProps) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -44,6 +46,13 @@ const ChoreItem = ({ data }: ChoreItemProps) => {
             checkedTasks ? [...JSON.parse(checkedTasks), data.id] : [data.id]
           )
         );
+      }
+
+      const checked = localStorage.getItem("checkedTasks");
+      const parsed = checked ? JSON.parse(checked) : [];
+      const checkedLength = parsed.length;
+      if (dataLength <= checkedLength) {
+        timerStop();
       }
     }
     handleClose();
