@@ -9,7 +9,7 @@ import Document, {
 const APP_NAME = "kajily";
 const APP_DESCRIPTION = "kaji x family x relay";
 
-export default class extends Document {
+export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     return await Document.getInitialProps(ctx);
   }
