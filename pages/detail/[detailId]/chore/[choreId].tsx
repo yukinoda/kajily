@@ -1,9 +1,9 @@
-import { Box, Button, IconButton, Paper, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import DefaultLayout from "../../../../components/layouts/defaultLayout";
-import { Chore, EventDataDef, RelayTask } from "../../../../types/common.types";
+import { Chore, EventDataDef } from "../../../../types/common.types";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import Loader from "../../../../components/loader";
 import ChoreItem from "../../../../components/choreItem";
@@ -64,9 +64,11 @@ const ChorePage = () => {
             <Typography variant="body2">Return to {title}</Typography>
           </Button>
         </Box>
-        <Box mb={4} display="flex" justifyContent="center">
-          <Typography variant="h4">{data?.name}</Typography>
-        </Box>
+        {data && (
+          <Box mb={4} display="flex" justifyContent="center">
+            <Typography variant="h4">{data.name}</Typography>
+          </Box>
+        )}
         {data?.relayTasks ? (
           data.relayTasks.map((item, idx) => {
             const relayTasksLen = data.relayTasks ? data.relayTasks.length : 0;

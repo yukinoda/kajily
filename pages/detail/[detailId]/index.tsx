@@ -8,6 +8,7 @@ import DefaultLayout from "../../../components/layouts/defaultLayout";
 import Loader from "../../../components/loader";
 import { EventDataDef } from "../../../types/common.types";
 import { Copyright } from "../../../components/copyright";
+import Image from "next/image";
 
 const DetailPage = () => {
   const router = useRouter();
@@ -21,6 +22,21 @@ const DetailPage = () => {
       setData(rawData && JSON.parse(rawData));
     }
   }, [detailId]);
+
+  const getChoreIconImg = (id: string) => {
+    switch (id) {
+      case "laundry":
+        return "/laundry.png";
+      case "dish-washing":
+        return "/dish.png";
+      case "bedroom-cleaning":
+        return "/bedroom.png";
+      case "cooking-dinner":
+        return "/cooking.png";
+      default:
+        return "";
+    }
+  };
 
   return (
     <>
@@ -50,13 +66,24 @@ const DetailPage = () => {
                 }
               >
                 <Box p={2} display="flex" justifyContent="space-between">
-                  <Typography
-                    variant="body1"
-                    alignItems="center"
-                    display="flex"
-                  >
-                    {item.name}
-                  </Typography>
+                  <Box display="flex" flexDirection="row" alignItems="center">
+                    <Box mr={1}>
+                      <Image
+                        src={getChoreIconImg(item.id)}
+                        alt={item.name}
+                        height={24}
+                        width={24}
+                        layout="fixed"
+                      />
+                    </Box>
+                    <Typography
+                      variant="body1"
+                      alignItems="center"
+                      display="flex"
+                    >
+                      {item.name}
+                    </Typography>
+                  </Box>
                   <ArrowForwardIosRoundedIcon />
                 </Box>
               </Paper>
