@@ -1,5 +1,6 @@
 export type RelayTask = {
   name: string;
+  id: string;
 };
 
 export type Chore = {
