@@ -6,6 +6,7 @@ import Loader from "../../components/loader";
 import { Chore } from "../../types/common.types";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
+import Head from "next/head";
 
 const Detail = () => {
   const router = useRouter();
@@ -21,32 +22,37 @@ const Detail = () => {
   }, [detailId]);
 
   return (
-    <DefaultLayout>
-      <Box mb={2}>
-        <Button
-          variant="contained"
-          size="large"
-          startIcon={<HomeRoundedIcon />}
-          onClick={() => router.push("/home")}
-        >
-          <Typography variant="body2">Home</Typography>
-        </Button>
-      </Box>
-      {data ? (
-        data.map(item => (
-          <Box mb={2} key={item.id}>
-            <Paper variant="outlined">
-              <Box p={2} display="flex" justifyContent="space-between">
-                <Typography variant="body1">{item.name}</Typography>
-                <ArrowForwardIosRoundedIcon />
-              </Box>
-            </Paper>
-          </Box>
-        ))
-      ) : (
-        <Loader />
-      )}
-    </DefaultLayout>
+    <>
+      <Head>
+        <title>kajily | {detailId}</title>
+      </Head>
+      <DefaultLayout>
+        <Box mb={2}>
+          <Button
+            variant="contained"
+            size="large"
+            startIcon={<HomeRoundedIcon />}
+            onClick={() => router.push("/home")}
+          >
+            <Typography variant="body2">Home</Typography>
+          </Button>
+        </Box>
+        {data ? (
+          data.map(item => (
+            <Box mb={2} key={item.id}>
+              <Paper variant="outlined">
+                <Box p={2} display="flex" justifyContent="space-between">
+                  <Typography variant="body1">{item.name}</Typography>
+                  <ArrowForwardIosRoundedIcon />
+                </Box>
+              </Paper>
+            </Box>
+          ))
+        ) : (
+          <Loader />
+        )}
+      </DefaultLayout>
+    </>
   );
 };
 
