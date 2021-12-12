@@ -20,16 +20,28 @@ const Complete = () => {
   return (
     <>
       <Head>
-        <title>kajily | complete</title>
+        <title>Kajily | complete</title>
       </Head>
       <DefaultLayout>
         <Box display="flex" flexDirection="column" alignItems="center">
           <Box mb={2}>
-            <Typography variant="h1" color="secondary.dark">
-              YOU MADE IT
+            <Typography
+              variant="h1"
+              color="secondary.dark"
+              style={{ fontFamily: "'Lato', sans-serif" }}
+            >
+              You Made It!
             </Typography>
           </Box>
-          <Typography variant="h5" color="secondary">
+          <Typography
+            variant="h3"
+            color="secondary.dark"
+            style={{
+              fontFamily: "'Lato', sans-serif",
+              fontStyle: "italic",
+              fontWeight: "700",
+            }}
+          >
             {countDate.hour !== 0 && `${countDate.hour}:`}
             {String(countDate.min).padStart(2, "0")}:
             {String(countDate.sec).padStart(2, "0")}

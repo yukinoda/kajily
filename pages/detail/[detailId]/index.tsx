@@ -41,7 +41,7 @@ const DetailPage = () => {
   return (
     <>
       <Head>
-        <title>kajily | {data?.title}</title>
+        <title>Kajily | {data?.title}</title>
       </Head>
       <DefaultLayout>
         <Box mb={2}>

@@ -8,13 +8,13 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>kajily</title>
+        <title>Kajily</title>
         <meta name="description" content="kajily x family x relay" />
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://kajily.vercel.app/">kajily!</a>
+          Welcome to <a href="https://kajily.vercel.app/">Kajily!</a>
         </h1>
 
         <p className={styles.description}>kaji x family x relay</p>
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
             <a className={styles.card}>
               <h2>Login &rarr;</h2>
               <p>
-                Start joining <i>kajily</i> by accessing here!
+                Start joining <i>Kajily</i> by accessing here!
               </p>
             </a>
           </Link>
