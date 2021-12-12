@@ -8,6 +8,8 @@ import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import Loader from "../../../../components/loader";
 import Avatar from "@mui/material/Avatar";
 import ChoreItem from "../../../../components/choreItem";
+import CountUpTimer from "../../../../components/CountUpTimer";
+import { useCountUp } from "../../../../hooks/useCountUp";
 
 const ChorePage = () => {
   const router = useRouter();
@@ -32,6 +34,13 @@ const ChorePage = () => {
     }
   }, [choreId, detailId]);
 
+  const { running, start, stop, data: countData } = useCountUp();
+  const completeAction = () => {
+    stop();
+    localStorage.setItem("completeTime", JSON.stringify(countData));
+    router.push("/complete/");
+  };
+
   return (
     <>
       <Head>
@@ -50,10 +59,23 @@ const ChorePage = () => {
           </Button>
         </Box>
         {data ? (
-          data.map(item => <ChoreItem key={item.id} data={item} />)
+          data.map(item => (
+            <ChoreItem
+              key={item.id}
+              data={item}
+              timerStop={completeAction}
+              dataLength={data.length}
+            />
+          ))
         ) : (
           <Loader />
         )}
+
+        <CountUpTimer
+          running={running}
+          start={() => start()}
+          data={countData}
+        />
       </DefaultLayout>
     </>
   );
