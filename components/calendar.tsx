@@ -5,36 +5,59 @@ import { useState } from "react";
 
 const localizer = momentLocalizer(moment);
 
-const allViews: View[] = ["agenda", "day", "week", "month"];
+const allViews: View[] = ["month"];
 
 class CalendarEvent {
   title: string;
-  allDay: boolean;
   start: Date;
   end: Date;
-  desc: string;
-  resourceId?: string;
-  tooltip?: string;
+  allDay?: boolean;
+  resource?: any;
 
   constructor(
     _title: string,
     _start: Date,
-    _endDate: Date,
+    _end: Date,
     _allDay?: boolean,
-    _desc?: string,
-    _resourceId?: string
+    _resource?: any
   ) {
     this.title = _title;
-    this.allDay = _allDay || false;
     this.start = _start;
-    this.end = _endDate;
-    this.desc = _desc || "";
-    this.resourceId = _resourceId;
+    this.end = _end;
+    this.allDay = _allDay || false;
+    this.resource = _resource || "";
   }
 }
 
+const sampleEvents: CalendarEvent[] = [
+  {
+    title: "Monstarhacks",
+    start: new Date("2021-12-10"),
+    end: new Date("2021-12-12"),
+    allDay: true,
+  },
+  {
+    title: "Laundry",
+    start: new Date("2021-12-21"),
+    end: new Date("2021-12-21"),
+    allDay: true,
+  },
+  {
+    title: "Christmas Eve",
+    start: new Date("2021-12-24"),
+    end: new Date("2021-12-24"),
+    allDay: true,
+  },
+  {
+    title: "Christmas",
+    start: new Date("2021-12-25"),
+    end: new Date("2021-12-25"),
+    allDay: true,
+  },
+];
+
 export default function SelectableCalendar() {
-  const [events, setEvents] = useState([] as CalendarEvent[]);
+  const [events, setEvents] = useState(sampleEvents as CalendarEvent[]);
 
   const handleSelect = ({ start, end }: SlotInfo) => {
     const title = window.prompt("New Event name");
