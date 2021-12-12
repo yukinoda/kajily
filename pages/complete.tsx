@@ -1,8 +1,12 @@
 import { Box, CardMedia, Typography } from "@mui/material";
 import Head from "next/head";
 import DefaultLayout from "../components/layouts/defaultLayout";
+import { useWindowSize } from "react-use";
+import Confetti from "react-confetti";
 
 const Complete = () => {
+  const { width, height } = useWindowSize();
+
   return (
     <>
       <Head>
@@ -28,6 +32,7 @@ const Complete = () => {
           alt="Complete Kaji"
         />
       </Box>
+      <Confetti width={width} height={height} />
     </>
   );
 };
