@@ -59,7 +59,7 @@ const ChoreItem = ({ data, timerStop, dataLength }: ChoreItemProps) => {
   };
 
   return (
-    <Box mb={2} key={data.id}>
+    <Box width={"100%"}>
       <Paper variant="outlined" onClick={handleClick}>
         <Box p={2} display="flex" justifyContent="space-between">
           <Typography variant="body1" alignItems="center" display="flex">

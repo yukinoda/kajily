@@ -25,3 +25,9 @@ export type User = {
   id: string;
   color: string;
 };
+
+export type EventDataDef = {
+  id: string;
+  title: string;
+  chores?: Chore[];
+};

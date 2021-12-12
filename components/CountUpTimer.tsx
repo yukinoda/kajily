@@ -24,8 +24,9 @@ const CountUpTimer: FC<Props> = ({ running, start, data }) => {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{ mt: 3 }}
             onClick={() => start()}
+            size="large"
           >
             Start!
           </Button>

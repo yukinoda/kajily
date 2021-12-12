@@ -3,20 +3,21 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import DefaultLayout from "../../../../components/layouts/defaultLayout";
-import { Chore, RelayTask } from "../../../../types/common.types";
+import { Chore, EventDataDef, RelayTask } from "../../../../types/common.types";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import Loader from "../../../../components/loader";
-import Avatar from "@mui/material/Avatar";
 import ChoreItem from "../../../../components/choreItem";
 import CountUpTimer from "../../../../components/CountUpTimer";
 import { useCountUp } from "../../../../hooks/useCountUp";
 import { Copyright } from "../../../../components/copyright";
+import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 
 const ChorePage = () => {
   const router = useRouter();
   const { detailId, choreId } = router.query;
 
-  const [data, setData] = useState<RelayTask[] | null>(null);
+  const [title, setTitle] = useState<string | null>(null);
+  const [data, setData] = useState<Chore | null>(null);
 
   useEffect(() => {
     if (
@@ -26,10 +27,14 @@ const ChorePage = () => {
     ) {
       const rawData = localStorage.getItem(detailId);
       if (rawData) {
-        const chores: Chore[] = JSON.parse(rawData);
-        const chore = chores.find(item => item.id === choreId);
-        if (chore && chore.relayTasks) {
-          setData(chore.relayTasks);
+        const event: EventDataDef = JSON.parse(rawData);
+        setTitle(event.title);
+
+        const chore = event.chores
+          ? event.chores.find(item => item.id === choreId)
+          : null;
+        if (chore) {
+          setData(chore);
         }
       }
     }
@@ -39,14 +44,14 @@ const ChorePage = () => {
   const completeAction = () => {
     stop();
     localStorage.setItem("completeTime", JSON.stringify(countData));
-    router.push("/complete/");
+    router.push("/complete");
   };
 
   return (
     <>
       <Head>
         <title>
-          kajily | {detailId} | {choreId}
+          kajily | {title} | {data?.name}
         </title>
       </Head>
       <DefaultLayout>
@@ -56,17 +61,27 @@ const ChorePage = () => {
             startIcon={<ArrowBackRoundedIcon />}
             onClick={() => router.push(`/detail/${detailId}`)}
           >
-            <Typography variant="body2">Back</Typography>
+            <Typography variant="body2">Return to {title}</Typography>
           </Button>
         </Box>
-        {data ? (
-          data.map(item => (
-            <ChoreItem
+        <Box mb={4} display="flex" justifyContent="center">
+          <Typography variant="h4">{data?.name}</Typography>
+        </Box>
+        {data?.relayTasks ? (
+          data.relayTasks.map((item, idx) => (
+            <Box
+              display="flex"
+              alignItems="center"
+              flexDirection="column"
               key={item.id}
-              data={item}
-              timerStop={completeAction}
-              dataLength={data.length}
-            />
+            >
+              <ChoreItem
+                data={item}
+                timerStop={completeAction}
+                dataLength={data.length}
+              />
+              {data.length - 1 !== idx && <ArrowDropDownRoundedIcon />}
+            </Box>
           ))
         ) : (
           <Loader />
