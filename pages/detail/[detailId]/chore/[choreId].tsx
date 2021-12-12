@@ -79,11 +79,15 @@ const ChorePage = () => {
                 alignItems="center"
                 flexDirection="column"
                 key={item.id}
+                style={{
+                  opacity: running ? 1 : 0.3,
+                }}
               >
                 <ChoreItem
                   data={item}
                   timerStop={completeAction}
                   dataLength={relayTasksLen}
+                  running={running}
                 />
                 {relayTasksLen - 1 !== idx && (
                   <Box m={1}>

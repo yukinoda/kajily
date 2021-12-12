@@ -15,9 +15,15 @@ interface ChoreItemProps {
   data: Chore;
   timerStop: () => void;
   dataLength: number;
+  running: boolean;
 }
 
-const ChoreItem = ({ data, timerStop, dataLength }: ChoreItemProps) => {
+const ChoreItem = ({
+  data,
+  timerStop,
+  dataLength,
+  running,
+}: ChoreItemProps) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -29,6 +35,8 @@ const ChoreItem = ({ data, timerStop, dataLength }: ChoreItemProps) => {
   }, []);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    if (!running) return;
+
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {

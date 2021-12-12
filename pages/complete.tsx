@@ -3,8 +3,10 @@ import Head from "next/head";
 import DefaultLayout from "../components/layouts/defaultLayout";
 import Confetti from "react-confetti";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Complete = () => {
+  const router = useRouter();
   const [countDate, setCountData] = useState({
     hour: 0,
     min: 0,
@@ -16,6 +18,10 @@ const Complete = () => {
     if (completeTime) {
       setCountData(JSON.parse(completeTime));
     }
+
+    setTimeout(() => {
+      router.push("/home/");
+    }, 10000);
   }, []);
   return (
     <>
