@@ -4,8 +4,8 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Head from "next/head";
+import DefaultLayout from "../components/layouts/defaultLayout";
 
 function Copyright(props: any) {
   return (
@@ -23,8 +23,6 @@ function Copyright(props: any) {
   );
 }
 
-const theme = createTheme();
-
 const Login = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -41,7 +39,7 @@ const Login = () => {
       <Head>
         <title>kajily | login</title>
       </Head>
-      <ThemeProvider theme={theme}>
+      <DefaultLayout>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <Box
@@ -96,7 +94,7 @@ const Login = () => {
           </Box>
           <Copyright sx={{ mt: 8, mb: 4 }} />
         </Container>
-      </ThemeProvider>
+      </DefaultLayout>
     </>
   );
 };
