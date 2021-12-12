@@ -8,6 +8,7 @@ import Head from "next/head";
 import DefaultLayout from "../components/layouts/defaultLayout";
 import { useRouter } from "next/router";
 import { Copyright } from "../components/copyright";
+import Image from "next/image";
 
 const Login = () => {
   const router = useRouter();
@@ -34,9 +35,22 @@ const Login = () => {
               alignItems: "center",
             }}
           >
-            <Typography component="div" variant="h5">
-              KAJILY LOGO
-            </Typography>
+            <Box
+              style={{
+                overflow: "hidden",
+                borderRadius: "4px",
+                fontSize: 0,
+                margin: "0 0 20px",
+              }}
+            >
+              <Image
+                src={"/kajily-icon.png"}
+                alt="logo"
+                height={80}
+                width={80}
+                layout="fixed"
+              />
+            </Box>
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
