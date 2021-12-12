@@ -1,5 +1,4 @@
 import { Calendar, View, momentLocalizer, SlotInfo } from "react-big-calendar";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import { useState } from "react";
 import { useRouter } from "next/router";
