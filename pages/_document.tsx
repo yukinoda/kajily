@@ -35,7 +35,7 @@ export default class MyDocument extends Document {
             href="/icons/icon-192x192.png"
           />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.png" />
 
           <link
             href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"

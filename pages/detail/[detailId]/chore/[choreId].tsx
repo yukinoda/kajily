@@ -68,21 +68,29 @@ const ChorePage = () => {
           <Typography variant="h4">{data?.name}</Typography>
         </Box>
         {data?.relayTasks ? (
-          data.relayTasks.map((item, idx) => (
-            <Box
-              display="flex"
-              alignItems="center"
-              flexDirection="column"
-              key={item.id}
-            >
-              <ChoreItem
-                data={item}
-                timerStop={completeAction}
-                dataLength={data.length}
-              />
-              {data.length - 1 !== idx && <ArrowDropDownRoundedIcon />}
-            </Box>
-          ))
+          data.relayTasks.map((item, idx) => {
+            const relayTasksLen = data.relayTasks ? data.relayTasks.length : 0;
+
+            return (
+              <Box
+                display="flex"
+                alignItems="center"
+                flexDirection="column"
+                key={item.id}
+              >
+                <ChoreItem
+                  data={item}
+                  timerStop={completeAction}
+                  dataLength={relayTasksLen}
+                />
+                {relayTasksLen - 1 !== idx && (
+                  <Box m={1}>
+                    <ArrowDropDownRoundedIcon />
+                  </Box>
+                )}
+              </Box>
+            );
+          })
         ) : (
           <Loader />
         )}

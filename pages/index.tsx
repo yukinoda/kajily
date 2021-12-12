@@ -10,7 +10,7 @@ const Home: NextPage = () => {
       <Head>
         <title>kajily</title>
         <meta name="description" content="kajily x family x relay" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>
