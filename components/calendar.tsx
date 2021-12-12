@@ -17,7 +17,7 @@ export default function SelectableCalendar() {
 
   useEffect(() => {
     for (const event of sampleEvents) {
-      if (typeof window !== "undefined" && "chores" in event) {
+      if (typeof window !== "undefined" && event.chores) {
         localStorage.setItem(event.id, JSON.stringify(event.chores));
       }
     }

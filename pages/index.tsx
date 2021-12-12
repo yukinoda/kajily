@@ -34,11 +34,6 @@ const Home: NextPage = () => {
             <p>Checkout your event calendar here!</p>
           </a>
 
-          <a href="/detail/monstarhacks" className={styles.card}>
-            <h2>Detail Example &rarr;</h2>
-            <p>Event detail page example to Monstarhacks event.</p>
-          </a>
-
           <a href="/complete" className={styles.card}>
             <h2>Complete Screen &rarr;</h2>
             <p>Event completion screen after everything is done.</p>
