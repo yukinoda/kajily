@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 function Copyright(props: any) {
   return (
@@ -26,14 +27,12 @@ function Copyright(props: any) {
 const theme = createTheme();
 
 const Login = () => {
+  const router = useRouter();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+
+    router.push("/home/");
   };
 
   return (
