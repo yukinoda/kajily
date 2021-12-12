@@ -10,6 +10,7 @@ import Avatar from "@mui/material/Avatar";
 import ChoreItem from "../../../../components/choreItem";
 import CountUpTimer from "../../../../components/CountUpTimer";
 import { useCountUp } from "../../../../hooks/useCountUp";
+import { Copyright } from "../../../../components/copyright";
 
 const ChorePage = () => {
   const router = useRouter();
@@ -76,6 +77,7 @@ const ChorePage = () => {
           start={() => start()}
           data={countData}
         />
+        <Copyright />
       </DefaultLayout>
     </>
   );

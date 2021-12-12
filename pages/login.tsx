@@ -7,22 +7,7 @@ import Container from "@mui/material/Container";
 import Head from "next/head";
 import DefaultLayout from "../components/layouts/defaultLayout";
 import { useRouter } from "next/router";
-
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © KAJILY "}
-
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import { Copyright } from "../components/copyright";
 
 const Login = () => {
   const router = useRouter();
@@ -91,8 +76,8 @@ const Login = () => {
               </Button>
             </Box>
           </Box>
-          <Copyright sx={{ mt: 8, mb: 4 }} />
         </Container>
+        <Copyright />
       </DefaultLayout>
     </>
   );

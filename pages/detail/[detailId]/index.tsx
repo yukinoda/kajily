@@ -7,6 +7,7 @@ import Head from "next/head";
 import DefaultLayout from "../../../components/layouts/defaultLayout";
 import Loader from "../../../components/loader";
 import { Chore } from "../../../types/common.types";
+import { Copyright } from "../../../components/copyright";
 
 const DetailPage = () => {
   const router = useRouter();
@@ -36,6 +37,7 @@ const DetailPage = () => {
             <Typography variant="body2">Home</Typography>
           </Button>
         </Box>
+
         {data ? (
           data.map(item => (
             <Box mb={2} key={item.id}>
@@ -61,6 +63,7 @@ const DetailPage = () => {
         ) : (
           <Loader />
         )}
+        <Copyright />
       </DefaultLayout>
     </>
   );

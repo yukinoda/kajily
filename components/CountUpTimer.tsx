@@ -13,10 +13,10 @@ const CountUpTimer: FC<Props> = ({ running, start, data }) => {
       <Box
         sx={{
           width: "100%",
-          position: "fixed",
-          bottom: "0",
-          left: 0,
-          padding: "0 20px",
+          // position: "fixed",
+          // bottom: "0",
+          // left: 0,
+          // padding: "0 20px",
         }}
       >
         {!running && (
