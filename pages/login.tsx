@@ -7,6 +7,7 @@ import Container from "@mui/material/Container";
 import Head from "next/head";
 import DefaultLayout from "../components/layouts/defaultLayout";
 import { useRouter } from "next/router";
+import CountUpTimer from "../components/CountUpTimer";
 
 function Copyright(props: any) {
   return (
