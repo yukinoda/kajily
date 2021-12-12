@@ -1,5 +1,7 @@
+import { Box } from "@mui/material";
 import Head from "next/head";
 import Calendar from "../components/calendar";
+import DefaultLayout from "../components/layouts/defaultLayout";
 
 const Home = () => {
   return (
@@ -7,10 +9,12 @@ const Home = () => {
       <Head>
         <title>kajily | home</title>
       </Head>
-      <div style={{ height: "100vh" }}>
-        {/* react-big-calendar */}
-        <Calendar />
-      </div>
+      <DefaultLayout>
+        <Box height="90vh">
+          {/* react-big-calendar */}
+          <Calendar />
+        </Box>
+      </DefaultLayout>
     </>
   );
 };

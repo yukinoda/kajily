@@ -2,6 +2,13 @@ import { CalendarEvent } from "../types/common.types";
 
 export const sampleEvents: CalendarEvent[] = [
   {
+    title: "Major cleanup",
+    start: new Date("2021-12-17"),
+    end: new Date("2021-12-17"),
+    allDay: true,
+    id: "major-cleanup",
+  },
+  {
     title: "Monstarhacks",
     start: new Date("2021-12-10"),
     end: new Date("2021-12-12"),
