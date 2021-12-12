@@ -2,8 +2,21 @@ import { Box, CardMedia, Typography } from "@mui/material";
 import Head from "next/head";
 import DefaultLayout from "../components/layouts/defaultLayout";
 import Confetti from "react-confetti";
+import { useEffect, useState } from "react";
 
 const Complete = () => {
+  const [countDate, setCountData] = useState({
+    hour: 0,
+    min: 0,
+    sec: 0,
+  });
+  useEffect(() => {
+    const completeTime = localStorage.getItem("completeTime");
+
+    if (completeTime) {
+      setCountData(JSON.parse(completeTime));
+    }
+  }, []);
   return (
     <>
       <Head>
@@ -17,7 +30,9 @@ const Complete = () => {
             </Typography>
           </Box>
           <Typography variant="h5" color="secondary">
-            HH:mm:ss
+            {countDate.hour !== 0 && `${countDate.hour}:`}
+            {String(countDate.min).padStart(2, "0")}:
+            {String(countDate.sec).padStart(2, "0")}
           </Typography>
         </Box>
       </DefaultLayout>
