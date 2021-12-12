@@ -5,8 +5,6 @@ import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 
 const Complete = () => {
-  const { width, height } = useWindowSize();
-
   return (
     <>
       <Head>
@@ -32,12 +30,15 @@ const Complete = () => {
           alt="Complete Kaji"
         />
       </Box>
-      <Confetti
-        width={width}
-        height={height}
-        gravity={0.02}
-        colors={["#ff9f1c", "#ffbf69", "#cbf3f0", "#2ec4b6"]}
-      />
+      {typeof window !== "undefined" && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          gravity={0.04}
+          colors={["#ff9f1c", "#ffbf69", "#cbf3f0", "#2ec4b6"]}
+          initialVelocityY={25}
+        />
+      )}
     </>
   );
 };
