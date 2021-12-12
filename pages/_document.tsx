@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" href="/favicon.png" />
 
           <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&family=Noto+Sans:wght@400;700&display=swap"
             rel="stylesheet"
           />
 
