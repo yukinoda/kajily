@@ -47,8 +47,14 @@ const DetailPage = () => {
                 }
               >
                 <Box p={2} display="flex" justifyContent="space-between">
-                  <Typography variant="body1">{item.name}</Typography>
-                  <ArrowForwardIosRoundedIcon />
+                  <Typography
+                    variant="body1"
+                    alignItems="center"
+                    display="flex"
+                  >
+                    {item.name}
+                  </Typography>
+                  <ArrowForwardIosRoundedIcon fontSize="large" />
                 </Box>
               </Paper>
             </Box>
