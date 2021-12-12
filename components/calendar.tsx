@@ -1,56 +1,26 @@
 import { Calendar, View, momentLocalizer, SlotInfo } from "react-big-calendar";
 import moment from "moment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { CalendarEvent } from "../types/common.types";
+import { sampleEvents } from "../mock-data/sampleEvents";
 
 const localizer = momentLocalizer(moment);
 
 const allViews: View[] = ["month"];
 
-type CalendarEvent = {
-  title: string;
-  start: Date;
-  end: Date;
-  allDay?: boolean;
-  resource?: any;
-  detailId: string;
-};
-
-const sampleEvents: CalendarEvent[] = [
-  {
-    title: "Monstarhacks",
-    start: new Date("2021-12-10"),
-    end: new Date("2021-12-12"),
-    allDay: true,
-    detailId: "monstarhacks",
-  },
-  {
-    title: "Laundry",
-    start: new Date("2021-12-21"),
-    end: new Date("2021-12-21"),
-    allDay: true,
-    detailId: "laundry",
-  },
-  {
-    title: "Christmas Eve",
-    start: new Date("2021-12-24"),
-    end: new Date("2021-12-24"),
-    allDay: true,
-    detailId: "christmas-eve",
-  },
-  {
-    title: "Christmas",
-    start: new Date("2021-12-25"),
-    end: new Date("2021-12-25"),
-    allDay: true,
-    detailId: "christmas",
-  },
-];
-
 export default function SelectableCalendar() {
   const router = useRouter();
 
   const [events, setEvents] = useState(sampleEvents as CalendarEvent[]);
+
+  useEffect(() => {
+    for (const event of sampleEvents) {
+      if (typeof window !== "undefined" && "chores" in event) {
+        localStorage.setItem(event.id, JSON.stringify(event.chores));
+      }
+    }
+  }, []);
 
   const handleSelect = ({ start, end }: SlotInfo) => {
     const title = window.prompt("New Event name");
@@ -73,7 +43,7 @@ export default function SelectableCalendar() {
       defaultView="month"
       views={allViews}
       defaultDate={new Date()}
-      onSelectEvent={event => router.push(`/detail/${event.detailId}`)}
+      onSelectEvent={e => router.push(`/detail/${e.id}`)}
       onSelectSlot={handleSelect}
       startAccessor="start"
       endAccessor="end"

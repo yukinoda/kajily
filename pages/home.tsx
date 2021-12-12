@@ -1,11 +1,17 @@
+import Head from "next/head";
 import Calendar from "../components/calendar";
 
 const Home = () => {
   return (
-    <div style={{ height: "100vh" }}>
-      {/* react-big-calendar */}
-      <Calendar />
-    </div>
+    <>
+      <Head>
+        <title>kajily | home</title>
+      </Head>
+      <div style={{ height: "100vh" }}>
+        {/* react-big-calendar */}
+        <Calendar />
+      </div>
+    </>
   );
 };
 
