@@ -6,7 +6,7 @@ import Document, {
   DocumentContext,
 } from "next/document";
 
-const APP_NAME = "KAJILY";
+const APP_NAME = "kajily";
 const APP_DESCRIPTION = "kaji x family x relay";
 
 export default class extends Document {
