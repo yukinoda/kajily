@@ -11,7 +11,7 @@ export const Copyright = (props: any) => {
           align="center"
           {...props}
         >
-          {"Copyright © KAJILY "}
+          {"Copyright © Kajily "}
 
           {new Date().getFullYear()}
           {"."}

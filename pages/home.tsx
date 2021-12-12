@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>kajily | home</title>
+        <title>Kajily | home</title>
       </Head>
       <DefaultLayout>
         <Box height="80vh">

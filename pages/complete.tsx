@@ -20,7 +20,7 @@ const Complete = () => {
   return (
     <>
       <Head>
-        <title>kajily | complete</title>
+        <title>Kajily | complete</title>
       </Head>
       <DefaultLayout>
         <Box display="flex" flexDirection="column" alignItems="center">

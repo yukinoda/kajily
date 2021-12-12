@@ -22,7 +22,7 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>kajily | login</title>
+        <title>Kajily | login</title>
       </Head>
       <DefaultLayout>
         <Container component="main" maxWidth="xs">

@@ -51,7 +51,7 @@ const ChorePage = () => {
     <>
       <Head>
         <title>
-          kajily | {title} | {data?.name}
+          Kajily | {title} | {data?.name}
         </title>
       </Head>
       <DefaultLayout>
