@@ -1,5 +1,4 @@
 import { Box, CardMedia, Typography } from "@mui/material";
-import { typography } from "@mui/system";
 import Head from "next/head";
 import DefaultLayout from "../components/layouts/defaultLayout";
 
