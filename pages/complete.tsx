@@ -28,7 +28,11 @@ const Complete = () => {
             <Typography
               variant="h1"
               color="secondary.dark"
-              style={{ fontFamily: "'Lato', sans-serif" }}
+              style={{
+                fontFamily: "'Lato', sans-serif",
+                fontStyle: "italic",
+                fontWeight: "700",
+              }}
             >
               You Made It!
             </Typography>
