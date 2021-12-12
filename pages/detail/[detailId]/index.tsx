@@ -1,16 +1,16 @@
 import { Box, Button, Paper, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import DefaultLayout from "../../components/layouts/defaultLayout";
-import Loader from "../../components/loader";
-import { Chore } from "../../types/common.types";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import Head from "next/head";
+import DefaultLayout from "../../../components/layouts/defaultLayout";
+import Loader from "../../../components/loader";
+import { Chore } from "../../../types/common.types";
 
-const Detail = () => {
+const DetailPage = () => {
   const router = useRouter();
-  const { detailId } = router.query;
+  const detailId = router.query.detailId;
 
   const [data, setData] = useState<Chore[] | null>(null);
 
@@ -40,7 +40,12 @@ const Detail = () => {
         {data ? (
           data.map(item => (
             <Box mb={2} key={item.id}>
-              <Paper variant="outlined">
+              <Paper
+                variant="outlined"
+                onClick={() =>
+                  router.push(`/detail/${detailId}/chore/${item.id}`)
+                }
+              >
                 <Box p={2} display="flex" justifyContent="space-between">
                   <Typography variant="body1">{item.name}</Typography>
                   <ArrowForwardIosRoundedIcon />
@@ -56,4 +61,4 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default DetailPage;
