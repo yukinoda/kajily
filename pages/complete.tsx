@@ -1,7 +1,6 @@
 import { Box, CardMedia, Typography } from "@mui/material";
 import Head from "next/head";
 import DefaultLayout from "../components/layouts/defaultLayout";
-import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 
 const Complete = () => {
