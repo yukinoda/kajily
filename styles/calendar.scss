@@ -1,0 +1,91 @@
+@import "react-big-calendar/lib/sass/styles";
+
+.rbc-calendar {
+  padding: 10px 0;
+}
+
+.rbc-toolbar,
+.rbc-btn-group,
+.rbc-toolbar-label {
+  display: block;
+}
+
+.rbc-toolbar-label {
+  margin: 20px 0;
+  font-size: 1.4em;
+}
+
+.rbc-toolbar {
+  padding: 0 10px;
+  margin-bottom: 0;
+  button {
+    width: 33.3%;
+  }
+}
+
+.rbc-month-header {
+  .rbc-header {
+    font-size: 13px;
+    padding: 4px 0;
+    font-weight: normal;
+  }
+}
+
+.rbc-date-cell {
+  font-size: 13px;
+  padding: 0;
+  margin: 6px 0;
+  text-align: center;
+  display: inline-block;
+  a {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+  }
+}
+
+// border
+.rbc-month-view,
+.rbc-header,
+.rbc-header + .rbc-header,
+.rbc-day-bg + .rbc-day-bg,
+.rbc-month-row + .rbc-month-row,
+.rbc-toolbar button {
+  border-color: #cfd8dc;
+}
+
+//bg
+.rbc-off-range-bg {
+  background-color: #eceff1;
+}
+
+.rbc-today {
+  background-color: transparent;
+}
+.rbc-now {
+  a {
+    font-weight: normal;
+    background-color: #0277bd;
+    color: #fff;
+    border-radius: 50%;
+  }
+}
+
+.rbc-event {
+  border-radius: 4px;
+  background-color: #2ec4b6;
+}
+.rbc-event-content {
+  font-size: 13px;
+}
+
+.rbc-event-continues-after {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rbc-event-continues-prior {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

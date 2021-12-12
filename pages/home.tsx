@@ -7,7 +7,7 @@ const Home = () => {
       <Head>
         <title>kajily | home</title>
       </Head>
-      <div style={{ height: "100vw" }}>
+      <div style={{ height: "100vh" }}>
         {/* react-big-calendar */}
         <Calendar />
       </div>
