@@ -17,8 +17,8 @@ export const sampleEvents: CalendarEvent[] = [
   },
   {
     title: "Kaji Day",
-    start: new Date("2021-12-21"),
-    end: new Date("2021-12-21"),
+    start: new Date("2021-12-13"),
+    end: new Date("2021-12-13"),
     allDay: true,
     id: "kaji-day",
     chores: [
