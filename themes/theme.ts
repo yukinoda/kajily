@@ -1,6 +1,9 @@
 import { createTheme, ThemeOptions } from "@mui/material";
 
 export const themeOptions: ThemeOptions = {
+  typography: {
+    fontFamily: "'Noto Sans', sans-serif",
+  },
   palette: {
     primary: {
       main: "#FF9F1C",
