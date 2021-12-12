@@ -45,7 +45,8 @@ export const sampleEvents: CalendarEvent[] = [
         id: "bedroom-cleaning",
         relayTasks: [
           { name: "Clean up the floor", id: "1" },
-          { name: "Make the bed", id: "2" },
+          { name: "Mop the floor", id: "2" },
+          { name: "Make the bed", id: "3" },
         ],
       },
       {
