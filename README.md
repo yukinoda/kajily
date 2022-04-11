@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Demo
 
-You can check out the running demo here: https://kajily.vercel.app/
+You can check out the running demo here: ~~demo link disabled~~
 
 ## Getting Started
 
